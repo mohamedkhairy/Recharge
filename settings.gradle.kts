@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 rootProject.name = "Recharge"
 include(":app")
 include(":core", ":core:sharedData",":core:utils", ":core:ui")
-include(":features", ":features:home")
+include(":features", ":features:home", ":features:recharge")
 
 
  

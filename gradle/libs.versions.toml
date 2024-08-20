@@ -10,7 +10,6 @@ activityCompose = "1.9.1"
 composeBom = "2024.04.01"
 
 appcompat = "1.6.1"
-coreKtxVersion = "1.12.0"
 ksp = "1.9.22-1.0.18"
 secrets = "2.0.1"
 
@@ -44,11 +43,17 @@ javaInject = "1"
 material = "1.11.0"
 gsonVersion = "2.8.8"
 
+# Test
+mockito-version = "5.1.0"
+kotlin-junit-version = "2.0.10"
+core-test-version = "2.1.0"
+turbine-version = "1.0.0"
+
+
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-core-ktx-v180 = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 
 # COMPOSE
@@ -60,8 +65,8 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 composeLivedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "composeRuntime" }
-navigationCompose = { module = "androidx.navigation:navigation-compose" , version.ref = "navigationCompose" }
-composeRuntime = { module = "androidx.compose.runtime:runtime", version.ref = "composeRuntime"}
+navigationCompose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+composeRuntime = { module = "androidx.compose.runtime:runtime", version.ref = "composeRuntime" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 
 
@@ -80,13 +85,13 @@ lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref =
 
 
 # Networking
-ktorCore = {module = "io.ktor:ktor-client-core" , version.ref = "ktorVersion" }
-clientSerialization = { module = "io.ktor:ktor-client-serialization" , version.ref = "ktorVersion" }
-ktorAndroid = { module = "io.ktor:ktor-client-android" , version.ref = "ktorVersion" }
-ktorJson = { module = "io.ktor:ktor-client-json" , version.ref = "ktorVersion" }
-ktorLogging = { module = "io.ktor:ktor-client-logging" , version.ref = "ktorVersion" }
-ktorAuth = { module = "io.ktor:ktor-client-auth" , version.ref = "ktorVersion" }
-ktorContentNegotiation = { module = "io.ktor:ktor-client-content-negotiation" , version.ref = "ktorVersion" }
+ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+clientSerialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorVersion" }
+ktorAndroid = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
+ktorJson = { module = "io.ktor:ktor-client-json", version.ref = "ktorVersion" }
+ktorLogging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorVersion" }
+ktorAuth = { module = "io.ktor:ktor-client-auth", version.ref = "ktorVersion" }
+ktorContentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
 ktorSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
 
 serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationVersion" }
@@ -98,7 +103,7 @@ hiltDaggerCompiler = { module = "com.google.dagger:hilt-android-compiler", versi
 hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompose" }
 
 #COIL
-coil-compose = {module = "io.coil-kt:coil-compose", version.ref = "coilVersion"}
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilVersion" }
 
 # Utils
 javaInject = { module = "javax.inject:javax.inject", version.ref = "javaInject" }
@@ -108,6 +113,13 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gsonVersion" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-version" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-version" }
+junit-kotlin = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-junit-version" }
+core-test = { module = "androidx.arch.core:core-testing", version.ref = "core-test-version" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine-version" }
+
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktorVersion" }
@@ -142,12 +154,21 @@ jetpackCompost = [
     "androidx-lifecycle-runtimeCompose"
 ]
 
+unit-test = [
+    "junit",
+    "mockito-kotlin",
+    "kotlinx-coroutines-test",
+    "mockito-core",
+    "junit-kotlin",
+    "core-test",
+    "turbine"]
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-ksp = {id = "com.google.devtools.ksp" , version.ref = "ksp"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 scripting = { id = "org.jetbrains.kotlin.plugin.scripting", version.ref = "kotlin" }
