@@ -4,7 +4,7 @@ extra.apply {
   set("minSdk", 24)
   set("versionCode", 1)
   set("versionName", "1.0")
-  set("testRunner", "androidx.test.runner.AndroidJUnitRunner")
+  set("testRunner", ".CustomTestRunner")
 
 
   // Build Types

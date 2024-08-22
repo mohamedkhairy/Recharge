@@ -24,6 +24,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+            debug {
+                enableAndroidTestCoverage = true
+                enableUnitTestCoverage = true
+            }
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,13 +52,11 @@ android {
 dependencies{
 
     implementation libs.hilt
+    implementation libs.hiltNavigationCompose
     kapt libs.hiltDaggerCompiler
     implementation libs.javaInject
     implementation libs.composeRuntime
-
-
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
-    androidTestImplementation libs.androidx.junit
-    androidTestImplementation libs.androidx.espresso.core
+
 }

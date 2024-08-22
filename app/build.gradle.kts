@@ -34,6 +34,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            enableAndroidTestCoverage = true
+            enableUnitTestCoverage = true
+        }
     }
 
     compileOptions {
@@ -69,7 +73,7 @@ dependencies {
     implementation(composeBom)
     implementation(libs.bundles.jetpackCompost)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.bundles.archComponents)
 
 //    modules
     implementation(project(":core:utils"))
@@ -78,12 +82,10 @@ dependencies {
     implementation(project(":features:recharge"))
 
 
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation(libs.bundles.unit.test)
+    androidTestImplementation(libs.bundles.ui.test)
+    kaptAndroidTest(libs.hiltDaggerCompiler)
 }

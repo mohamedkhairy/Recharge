@@ -4,7 +4,6 @@ kotlin = "1.9.22"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.04.01"
@@ -19,8 +18,6 @@ lifecycle = "2.7.0"
 # Kotlin Coroutines
 kotlinCoroutines = "1.7.1"
 
-# Networking
-ktorVersion = "2.3.11"
 serializationVersion = "1.6.3"
 serialization-plugin = "1.6.21"
 
@@ -48,7 +45,11 @@ mockito-version = "5.1.0"
 kotlin-junit-version = "2.0.10"
 core-test-version = "2.1.0"
 turbine-version = "1.0.0"
-
+androidx-test-core-version = "1.4.0"
+androidx-test-runner-version = "1.4.0"
+androidx-lifecycle-test-version = "2.6.1"
+mockito-android-version = "5.2.0"
+ui-test-junit4-version = "1.6.8"
 
 
 [libraries]
@@ -70,8 +71,6 @@ composeRuntime = { module = "androidx.compose.runtime:runtime", version.ref = "c
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 
 
-
-
 # Kotlin
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
@@ -81,18 +80,7 @@ coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android
 # Arch Components
 viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifeData = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
 
-
-# Networking
-ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
-clientSerialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorVersion" }
-ktorAndroid = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
-ktorJson = { module = "io.ktor:ktor-client-json", version.ref = "ktorVersion" }
-ktorLogging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorVersion" }
-ktorAuth = { module = "io.ktor:ktor-client-auth", version.ref = "ktorVersion" }
-ktorContentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
-ktorSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
 
 serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationVersion" }
 
@@ -111,7 +99,7 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gsonVersion" }
 
 #TESTING
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "ui-test-junit4-version" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-version" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
@@ -119,25 +107,25 @@ mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-ver
 junit-kotlin = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-junit-version" }
 core-test = { module = "androidx.arch.core:core-testing", version.ref = "core-test-version" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine-version" }
-
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktorVersion" }
+
+
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockito-android-version" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockito-android-version" }
+androidx-lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing", version.ref = "androidx-lifecycle-test-version" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core-version" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner-version" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 
 
 
 [bundles]
-archComponents = ["viewModel", "lifeData", "lifecycle"]
-networking = [
-    "ktorAndroid",
-    "ktorCore",
-    "ktorJson",
-    "ktorLogging",
-    "clientSerialization",
-    "ktorAuth",
-    "ktorContentNegotiation",
-    "ktorSerialization",
-    "serialization"]
+
+ui-test= ["androidx-test-core","mockito-android", "androidx-test-runner", "hilt-android-testing",
+"androidx-junit", "androidx-ui-test-junit4", "androidx-lifecycle-runtime-testing", "mockito-kotlin"]
+
+archComponents = ["viewModel", "lifeData", "androidx-lifecycle-runtime-ktx"]
+
 kotlinCoroutines = ["coroutinesCore", "coroutinesAndroid"]
 
 jetpackCompost = [
@@ -161,7 +149,8 @@ unit-test = [
     "mockito-core",
     "junit-kotlin",
     "core-test",
-    "turbine"]
+    "turbine",
+    "mockito-inline"]
 
 
 [plugins]

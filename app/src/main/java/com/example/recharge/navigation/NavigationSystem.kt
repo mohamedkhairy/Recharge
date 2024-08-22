@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.home.presentation.navigation.HOME_ROUTE
 import com.example.home.presentation.navigation.homeScreen
-import com.example.recharge.presentation.navigation.navigateToRecharge
-import com.example.recharge.presentation.navigation.rechargeScreen
+import com.example.recharge.feature.recharge.presentation.navigation.navigateToRecharge
+import com.example.recharge.feature.recharge.presentation.navigation.rechargeScreen
 
 
 @Composable
