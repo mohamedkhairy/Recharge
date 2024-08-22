@@ -2,7 +2,7 @@ package com.example.home.presentation.utils
 
 import androidx.annotation.ColorRes
 import androidx.compose.ui.graphics.Color
-import com.example.sharedData.model.RechargeModel
+import com.example.core.sharedData.RechargeModel
 
 data class UiIntent(
     val text: String? = null,

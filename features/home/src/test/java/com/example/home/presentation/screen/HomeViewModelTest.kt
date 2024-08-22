@@ -9,22 +9,19 @@ import com.example.home.fakeData.ZainValidFakeData.validPhoneNum
 import com.example.home.presentation.screens.HomeViewModel
 import com.example.home.presentation.utils.HomeConstant.DIALOG_STATE
 import com.example.home.presentation.utils.HomeConstant.PHONE_QUERY
-import com.example.recharge.R
-import com.example.sharedData.model.RechargeModel
+import com.example.core.sharedData.RechargeModel
+import com.example.recharge.feature.home.R
 import com.example.utils.core.ActionState
-import com.example.utils.core.Constant.zainRecognizekey
 import com.example.utils.core.UiState
 import com.example.utils.resourceProvider.ResourceProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertThrows
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -34,7 +31,6 @@ import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
-import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -82,7 +78,7 @@ class HomeViewModelTest {
 
     @Test
     fun `when phone number is valid, UiState is updated based on use case result`() = runTest(testDispatcher) {
-        val expectedUiState = UiState.success(RechargeModel(validPhoneNum, null))
+        val expectedUiState = UiState.success(RechargeModel(validPhoneNum, "Voice"))
 
         savedStateHandle = SavedStateHandle(mapOf(PHONE_QUERY to validPhoneNum))
         viewModel = HomeViewModel(enterPhoneNumberUseCase, savedStateHandle)

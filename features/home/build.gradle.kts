@@ -3,7 +3,12 @@ apply {
 }
 
 plugins {
+    alias(libs.plugins.android.library)
     id("kotlinx-serialization")
+}
+
+android {
+    namespace = "${rootProject.extra.get("applicationId")}.feature.home"
 }
 
 dependencies {
@@ -13,8 +18,6 @@ dependencies {
     "implementation"(composeBom)
     "implementation"(libs.serialization)
     "implementation"(libs.bundles.jetpackCompost)
-    "implementation"(libs.hiltNavigationCompose)
-    "implementation"(libs.ktorAndroid)
     "implementation"(libs.bundles.archComponents)
     "implementation"(libs.bundles.kotlinCoroutines)
 
@@ -22,12 +25,9 @@ dependencies {
     "implementation"(project(":core:utils"))
     "implementation"(project(":core:ui"))
 
-
-    "testImplementation"(libs.ktor.client.mock)
-    "testImplementation"(libs.ktorContentNegotiation)
-    "testImplementation"(libs.ktorSerialization)
     "testImplementation"(libs.bundles.unit.test)
-
+    "androidTestImplementation"(libs.bundles.ui.test)
+    "kaptAndroidTest"(libs.hiltDaggerCompiler)
 
 
 }

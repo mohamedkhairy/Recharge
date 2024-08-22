@@ -7,7 +7,7 @@ import com.example.home.domain.useCase.EnterPhoneNumberUseCase
 import com.example.home.presentation.utils.HomeConstant.DIALOG_STATE
 import com.example.home.presentation.utils.HomeConstant.PHONE_QUERY
 import com.example.home.presentation.utils.HomeConstant.VALIDATION_QUERY_MIN_LENGTH
-import com.example.sharedData.model.RechargeModel
+import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.ActionState
 import com.example.utils.core.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
