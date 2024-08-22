@@ -1,4 +1,4 @@
-package com.example.recharge.presentation.screens
+package com.example.recharge.feature.recharge.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,13 +21,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.core.ui.component.scaffold.ZainScaffold
-import com.example.recharge.R
-import com.example.recharge.domain.enums.TabSelection.VOUCHER
-import com.example.sharedData.model.RechargeModel
-import com.example.recharge.domain.enums.TabSelection.BALANCE
-import com.example.recharge.presentation.componets.BalanceTab
-import com.example.recharge.presentation.componets.VoucherTab
-import com.example.recharge.presentation.util.RechargeUiIntent
+import com.example.recharge.feature.recharge.domain.enums.TabSelection.VOUCHER
+import com.example.core.sharedData.RechargeModel
+import com.example.recharge.feature.recharge.domain.enums.TabSelection.BALANCE
+import com.example.recharge.feature.recharge.presentation.componets.BalanceTab
+import com.example.recharge.feature.recharge.presentation.componets.VoucherTab
+import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
 import com.example.utils.core.UiState
 
 
@@ -63,18 +62,18 @@ fun RechargeScreen(
     rechargeModel: RechargeModel?,
     amountUiState: UiState<RechargeUiIntent>,
     codeUiState: UiState<RechargeUiIntent>,
-    amount: Int,
+    amount: String?,
     code: String?,
-    onAmountChanged: (Int) -> Unit,
+    onAmountChanged: (String?) -> Unit,
     onCodeChanged: (String?) -> Unit
 ) {
 
     ZainScaffold(
-        title = stringResource(id = R.string.recharge_screen),
+        title = stringResource(id = com.example.recharge.feature.recharge.R.string.recharge_screen),
         navIcon = {
             Icon(
                 imageVector = Icons.Default.KeyboardArrowLeft,
-                contentDescription = "Person Icon",
+                contentDescription = "Back",
                 modifier = Modifier.clickable {
                     onBackClick()
                 }

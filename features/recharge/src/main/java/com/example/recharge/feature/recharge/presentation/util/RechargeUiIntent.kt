@@ -1,8 +1,7 @@
-package com.example.recharge.presentation.util
+package com.example.recharge.feature.recharge.presentation.util
 
 import androidx.annotation.ColorRes
 import androidx.compose.ui.graphics.Color
-import com.example.sharedData.model.RechargeModel
 
 data class RechargeUiIntent(
     val statusMsg: String? = null,

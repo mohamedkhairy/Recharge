@@ -1,4 +1,4 @@
-package com.example.recharge.presentation.componets
+package com.example.recharge.feature.recharge.presentation.componets
 
 
 import android.widget.Toast
@@ -27,27 +27,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recharge.domain.enums.SuggestedAmount.AMOUNT100
-import com.example.recharge.domain.enums.SuggestedAmount.AMOUNT200
-import com.example.recharge.domain.enums.SuggestedAmount.AMOUNT300
-import com.example.recharge.domain.enums.SuggestedAmount.AMOUNT50
-import com.example.recharge.presentation.util.RechargeUiIntent
-import com.example.sharedData.model.RechargeModel
+import com.example.recharge.feature.recharge.domain.enums.SuggestedAmount.AMOUNT100
+import com.example.recharge.feature.recharge.domain.enums.SuggestedAmount.AMOUNT200
+import com.example.recharge.feature.recharge.domain.enums.SuggestedAmount.AMOUNT300
+import com.example.recharge.feature.recharge.domain.enums.SuggestedAmount.AMOUNT50
+import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
+import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.UiState
 
 @Composable
 fun BalanceTab(
     rechargeModel: RechargeModel?,
     amountUiState: UiState<RechargeUiIntent>,
-    amount: Int,
-    onAmountChanged: (Int) -> Unit
+    amount: String?,
+    onAmountChanged: (String?) -> Unit
 ) {
 
-    var searchText by remember { mutableStateOf(amount.toString()) }
+    var searchText by remember { mutableStateOf(amount) }
     var statusUpdate by remember { mutableStateOf(RechargeUiIntent()) }
     val context = LocalContext.current
 
@@ -78,16 +79,17 @@ fun BalanceTab(
         }
 
         OutlinedTextField(
-            value = searchText,
+            value = searchText ?: "",
             onValueChange = {
                 if (it.length < 6) {
                     searchText = it
-                    onAmountChanged(it.toIntOrNull() ?: 0)
+                    onAmountChanged(it)
                 }
             },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Number
             ),
+
             trailingIcon = {
                 Text(
                     text = "SAR",
@@ -106,6 +108,7 @@ fun BalanceTab(
             textStyle = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.primary),
             visualTransformation = VisualTransformation.None,
             modifier = Modifier
+                .testTag("AmountInputField")
                 .width(150.dp)
                 .padding(horizontal = 8.dp)
         )
@@ -120,39 +123,41 @@ fun BalanceTab(
         Row(horizontalArrangement = Arrangement.SpaceAround, modifier = Modifier.fillMaxWidth()) {
             Button(
                 onClick = {
-                    searchText = AMOUNT50.amount.toString()
+                    searchText = AMOUNT50.amount
                     onAmountChanged(AMOUNT50.amount)
                 },
-                modifier = Modifier.padding(4.dp)
+                modifier = Modifier
+                    .padding(4.dp)
+                    .testTag("Amount50")
             ) {
-                Text(AMOUNT50.amount.toString())
+                Text(AMOUNT50.amount)
             }
             Button(
                 onClick = {
-                    searchText = AMOUNT100.amount.toString()
+                    searchText = AMOUNT100.amount
                     onAmountChanged(AMOUNT100.amount)
                 },
                 modifier = Modifier.padding(4.dp)
             ) {
-                Text(AMOUNT100.amount.toString())
+                Text(AMOUNT100.amount)
             }
             Button(
                 onClick = {
-                    searchText = AMOUNT200.amount.toString()
+                    searchText = AMOUNT200.amount
                     onAmountChanged(AMOUNT200.amount)
                 },
                 modifier = Modifier.padding(4.dp)
             ) {
-                Text(AMOUNT200.amount.toString())
+                Text(AMOUNT200.amount)
             }
             Button(
                 onClick = {
-                    searchText = AMOUNT300.amount.toString()
+                    searchText = AMOUNT300.amount
                     onAmountChanged(AMOUNT300.amount)
                 },
                 modifier = Modifier.padding(4.dp)
             ) {
-                Text(AMOUNT300.amount.toString())
+                Text(AMOUNT300.amount)
             }
         }
 
@@ -164,6 +169,7 @@ fun BalanceTab(
             },
             enabled = statusUpdate.isEnable,
             modifier = Modifier
+                .testTag("ChargeButton")
                 .fillMaxWidth()
 
         )

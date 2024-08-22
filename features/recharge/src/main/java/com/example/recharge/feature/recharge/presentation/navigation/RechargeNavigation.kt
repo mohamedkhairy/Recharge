@@ -1,4 +1,4 @@
-package com.example.recharge.presentation.navigation
+package com.example.recharge.feature.recharge.presentation.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -6,8 +6,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.recharge.presentation.screens.RechargeRoute
-import com.example.sharedData.model.RechargeModel
+import com.example.recharge.feature.recharge.presentation.screens.RechargeRoute
+import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.jsonParse
 
 const val RECHARGE_ROUTE_BASE = "recharge_route"

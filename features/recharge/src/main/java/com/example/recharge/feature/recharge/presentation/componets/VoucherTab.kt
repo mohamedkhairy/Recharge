@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.recharge.presentation.componets
+package com.example.recharge.feature.recharge.presentation.componets
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -26,12 +26,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recharge.presentation.util.RechargeUiIntent
-import com.example.sharedData.model.RechargeModel
+import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
+import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.UiState
 
 @Composable
@@ -99,9 +100,10 @@ fun VoucherTab(
                 disabledIndicatorColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent
             ),
-            textStyle = LocalTextStyle.current.copy(color = Color.Black), // Set text color
+            textStyle = LocalTextStyle.current.copy(color = Color.Black),
             visualTransformation = VisualTransformation.None,
             modifier = Modifier
+                .testTag("CodeInputField")
                 .padding(horizontal = 8.dp)
         )
 
@@ -110,7 +112,9 @@ fun VoucherTab(
                 text = it,
                 color = statusUpdate.color,
                 fontSize = 12.sp,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .testTag("statusText")
+                    .padding(8.dp)
             )
         }
 
@@ -122,7 +126,9 @@ fun VoucherTab(
                 Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show()
             },
             enabled = statusUpdate.isEnable,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .testTag("SubmitButton")
+                .fillMaxWidth()
         ) {
             Text("SUBMIT")
         }

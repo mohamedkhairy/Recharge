@@ -1,8 +1,7 @@
-package com.example.recharge.presentation.componets
+package com.example.recharge.feature.recharge.presentation.componets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.sharedData.model.RechargeModel
+import com.example.core.sharedData.RechargeModel
 
 
 @Composable
