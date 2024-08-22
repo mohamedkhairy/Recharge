@@ -1,4 +1,4 @@
-package com.paymob.pos.utils.dispatchers
+package com.example.utils.dispatchers
 
 import javax.inject.Qualifier
 

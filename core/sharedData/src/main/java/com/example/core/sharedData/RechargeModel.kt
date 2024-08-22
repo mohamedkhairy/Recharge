@@ -1,4 +1,4 @@
-package com.example.sharedData.model
+package com.example.core.sharedData
 
 data class RechargeModel(
     val phoneNum: String,

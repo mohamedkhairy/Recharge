@@ -1,4 +1,4 @@
-package com.paymob.pos.utils.dispatchers
+package com.example.utils.dispatchers
 
 import dagger.Module
 import dagger.Provides
