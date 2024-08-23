@@ -24,6 +24,4 @@ rootProject.name = "Recharge"
 include(":app")
 include(":core", ":core:sharedData",":core:utils", ":core:ui")
 include(":features", ":features:home", ":features:recharge")
-
-
- 
+include(":benchmark")

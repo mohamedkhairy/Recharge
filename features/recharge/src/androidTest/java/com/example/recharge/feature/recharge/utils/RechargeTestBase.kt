@@ -26,6 +26,6 @@ abstract class RechargeTestBase {
         @Before
         fun init() {
             hiltRule.inject()
-            rechargeModel = RechargeModel("0586677881", "Voice")
+            rechargeModel = RechargeModel("0598269735", "Voice")
         }
 }

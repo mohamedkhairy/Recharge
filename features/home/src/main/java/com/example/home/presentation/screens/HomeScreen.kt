@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package com.example.home.presentation.screens
 
 import android.widget.Toast
@@ -33,10 +35,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -222,6 +228,10 @@ fun VoiceDataFiberCard(
                         .padding(horizontal = 8.dp)
                         .weight(3f, true)
                         .align(Alignment.CenterVertically)
+                        .testTag("phone_number")
+                        .semantics {
+                            testTagsAsResourceId = true
+                        }
                 )
 
                 Button(
@@ -238,6 +248,10 @@ fun VoiceDataFiberCard(
                         .padding(end = 8.dp)
                         .weight(1f, false)
                         .align(Alignment.CenterVertically)
+                        .testTag("next")
+                        .semantics {
+                            testTagsAsResourceId = true
+                        }
                     ,
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(

@@ -50,6 +50,9 @@ androidx-test-runner-version = "1.4.0"
 androidx-lifecycle-test-version = "2.6.1"
 mockito-android-version = "5.2.0"
 ui-test-junit4-version = "1.6.8"
+espressoCore = "3.6.1"
+uiautomator = "2.2.0"
+benchmarkMacroJunit4 = "1.2.0-beta01"
 
 
 [libraries]
@@ -116,6 +119,9 @@ androidx-lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lif
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core-version" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner-version" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 
 
 
@@ -164,6 +170,7 @@ scripting = { id = "org.jetbrains.kotlin.plugin.scripting", version.ref = "kotli
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 serialization-plugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization-plugin" }
+android-test = { id = "com.android.test", version.ref = "agp" }
 
 
 

@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.parcelize) apply false
     alias(libs.plugins.secrets) apply false
     alias(libs.plugins.serialization.plugin) apply false
+    alias(libs.plugins.android.test) apply false
 
 }
 buildscript {

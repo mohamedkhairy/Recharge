@@ -2,7 +2,7 @@ package com.example.home.fakeData
 
 object ZainValidFakeData {
 
-    internal const val validPhoneNum = "0598765432"
+    internal const val validPhoneNum = "0598269735"
 
 }
 
