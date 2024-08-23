@@ -19,6 +19,7 @@
 <h5>core -> have the most usable components through the app</h5>
 <h5>feature.Home -> <br> the home screen, that takes the phone and validates it, also it contains a unit test for this module</h5>
 <h5>feature.Recharge -> <br> The Recharge screen, which has a two tabs screen for "balance" and "Voucher", contains a unit test and Compose UI test</h5>
+<h5> ** The documentation is applied only in the recharge module **</h5>
 
 
 
