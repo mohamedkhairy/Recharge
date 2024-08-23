@@ -13,6 +13,13 @@ open class CodeUseCase @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : FlowUseCase<String?, RechargeUiIntent>(ioDispatcher) {
 
+
+    /**
+     * Executes the use case with the provided code.
+     *
+     * @param code A nullable [String] representing the user input code.
+     * @return A [Flow] emitting a [RechargeUiIntent] indicating if the submit action is enabled.
+     */
     public override suspend fun execute(code: String?): Flow<RechargeUiIntent> = flow {
         code?.let{
             if (code.length < 15){
@@ -32,27 +39,7 @@ open class CodeUseCase @Inject constructor(
                     )
                 )
         } ?: run { error("Invalid, code must be 14 number length") }
-
-//        if (code.isNullOrEmpty() || code.length < 15) {
-//            emit(
-//                RechargeUiIntent(
-//                    statusMsg = "Invalid, code must be 14 number length",
-//                    isEnable = false,
-//                    color = Color.Red
-//                )
-//            )
-//        } else {
-//            emit(
-//                RechargeUiIntent(
-//                    statusMsg = "Valid",
-//                    isEnable = true,
-//                    color = Color.Green
-//                )
-//            )
-//        }
-//
     }
-
 
 }
 

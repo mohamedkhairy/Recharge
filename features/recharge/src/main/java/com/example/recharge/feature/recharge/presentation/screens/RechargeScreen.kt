@@ -30,6 +30,14 @@ import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
 import com.example.utils.core.UiState
 
 
+/**
+ * RechargeRoute is a composable function that sets up the recharge screen with the provided ViewModel.
+ * It collects UI state and data from the ViewModel and passes them to the `RechargeScreen` composable.
+ *
+ * @param onBackClick Callback invoked when the back button is clicked.
+ * @param rechargeModel Optional model for displaying recharge data.
+ * @param rechargeViewModel The ViewModel used to manage the recharge screen state.
+ */
 @Composable
 internal fun RechargeRoute(
     onBackClick: () -> Unit,
@@ -56,6 +64,19 @@ internal fun RechargeRoute(
 }
 
 
+/**
+ * RechargeScreen is a composable function that displays the recharge UI with tabs for balance and voucher.
+ * It uses `ZainScaffold` to provide the layout and navigation, and manages tab selection and content display.
+ *
+ * @param onBackClick Callback invoked when the back button is clicked.
+ * @param rechargeModel Optional model for displaying recharge data.
+ * @param amountUiState The current UI state for amount validation.
+ * @param codeUiState The current UI state for code validation.
+ * @param amount Current amount input value.
+ * @param code Current voucher code input value.
+ * @param onAmountChanged Callback invoked when the amount changes.
+ * @param onCodeChanged Callback invoked when the code changes.
+ */
 @Composable
 fun RechargeScreen(
     onBackClick: () -> Unit,

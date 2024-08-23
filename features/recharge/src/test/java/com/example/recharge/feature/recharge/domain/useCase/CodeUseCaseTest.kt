@@ -11,6 +11,16 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertFailsWith
 
+
+/**
+ * Unit tests for the CodeUseCase class, validating its behavior based on different input codes.
+ *
+ * Tests include:
+ * - Handling of null codes
+ * - Handling of empty codes
+ * - Emission of RechargeUiIntent with appropriate status messages, enable states, and colors
+ *   based on the length of the code
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class CodeUseCaseTest {
 

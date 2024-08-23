@@ -26,6 +26,16 @@ import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
+
+/**
+ * Unit tests for the RechargeViewModel class, focusing on its interaction with use cases and state handling.
+ *
+ * Tests include:
+ * - Initial state of amountSavedState and codeSavedState
+ * - Updating of amountSavedState based on valid and invalid inputs
+ * - Updating of codeSavedState based on valid and invalid inputs
+ * - Handling of cases where input length is less than the minimum required
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class RechargeViewModelTest {
 

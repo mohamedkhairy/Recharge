@@ -17,6 +17,15 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
+
+/**
+ * RechargeViewModel manages the state for the recharge feature, including amount and code validation.
+ * It uses `AmountUseCase` and `CodeUseCase` to perform validation and provides state flows for UI.
+ *
+ * @property amountUseCase Use case for validating amount inputs.
+ * @property codeUseCase Use case for validating voucher codes.
+ * @property savedStateHandle Handles saving and restoring state.
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class RechargeViewModel @Inject constructor(

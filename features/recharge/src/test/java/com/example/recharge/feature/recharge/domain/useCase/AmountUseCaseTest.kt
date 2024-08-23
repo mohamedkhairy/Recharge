@@ -10,6 +10,13 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertFailsWith
 
+/**
+ * Unit tests for the AmountUseCase class, validating its behavior based on different input amounts.
+ *
+ * Tests include:
+ * - Handling of null amounts
+ * - Emission of RechargeUiIntent with appropriate `isEnable` values based on amount thresholds
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class AmountUseCaseTest {
 

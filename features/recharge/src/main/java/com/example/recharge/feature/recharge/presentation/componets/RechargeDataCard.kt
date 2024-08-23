@@ -17,6 +17,11 @@ import androidx.compose.ui.unit.sp
 import com.example.core.sharedData.RechargeModel
 
 
+/**
+ * RechargeDataCard displays a card with recharge details.
+ *
+ * @param rechargeModel The model containing recharge information to be displayed.
+ */
 @Composable
 fun RechargeDataCard(
     rechargeModel: RechargeModel

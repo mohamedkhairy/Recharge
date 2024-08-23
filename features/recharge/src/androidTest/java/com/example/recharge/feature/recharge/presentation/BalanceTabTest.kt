@@ -13,8 +13,21 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 
 
+/**
+ * BalanceTabTest contains UI tests for the Balance tab in the Recharge screen.
+ * It uses Hilt for dependency injection and Compose Test Rules for UI testing.
+ */
+
 @HiltAndroidTest
 class BalanceTabTest: RechargeTestBase() {
+
+
+    /**
+     * - `testAmountInput()`: Verifies that the Amount input field accepts and displays text correctly.
+     *   1. Sets up the RechargeRoute with test content.
+     *   2. Navigates to the "Balance" tab.
+     *   3. Inputs "5" into the Amount field and checks the displayed text.
+     */
 
     @Test
     fun testAmountInput() {
@@ -40,6 +53,15 @@ class BalanceTabTest: RechargeTestBase() {
         }
     }
 
+
+    /**
+     * - `testAmountSuggestAction()`: Tests the behavior of the amount suggestion action.
+     *   1. Sets up the RechargeRoute with test content.
+     *   2. Navigates to the "Balance" tab.
+     *   3. Checks that the "ChargeButton" is initially disabled.
+     *   4. Selects the "Amount50" suggestion and verifies the button becomes enabled.
+     *   5. Ensures the Amount field displays "50".
+     */
     @Test
     fun testAmountSuggestAction() {
         with(composeTestRule) {

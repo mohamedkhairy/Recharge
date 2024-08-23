@@ -40,6 +40,17 @@ import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
 import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.UiState
 
+
+/**
+ * BalanceTab is a composable function that displays the balance tab UI for the recharge feature.
+ * It includes input fields, buttons for predefined amounts, and a submit button.
+ *
+ * @param rechargeModel Optional model for displaying recharge data.
+ * @param amountUiState The current UI state for amount validation (e.g., loading, error, success).
+ * @param amount Current amount input value.
+ * @param onAmountChanged Callback invoked when the amount changes.
+ */
+
 @Composable
 fun BalanceTab(
     rechargeModel: RechargeModel?,

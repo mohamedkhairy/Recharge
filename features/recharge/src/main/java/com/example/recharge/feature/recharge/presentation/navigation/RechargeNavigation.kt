@@ -16,6 +16,13 @@ const val RECHARGE_DATA_ARG = "RECHARGE_DATA_ARG"
 
 const val RECHARGE_ROUTE = "$RECHARGE_ROUTE_BASE?$RECHARGE_DATA_ARG={$RECHARGE_DATA_ARG}"
 
+/**
+ * Extension function for `NavController` to navigate to the recharge screen.
+ * Constructs a route with the optional `rechargeModel` and navigates using the provided `NavOptions`.
+ *
+ * @param rechargeModel Optional parameter to pass data to the recharge screen.
+ * @param navOptions Optional navigation options.
+ */
 fun NavController.navigateToRecharge(rechargeModel: String?, navOptions: NavOptions? = null) {
     val route = if (!rechargeModel.isNullOrEmpty()) {
         "$RECHARGE_ROUTE_BASE?$RECHARGE_DATA_ARG=$rechargeModel"
@@ -26,6 +33,12 @@ fun NavController.navigateToRecharge(rechargeModel: String?, navOptions: NavOpti
 }
 
 
+/**
+ * Extension function for `NavGraphBuilder` to define a composable screen for the recharge route.
+ * Sets up the route with optional arguments and provides a `RechargeRoute` composable.
+ *
+ * @param onBackClick Callback to handle back navigation.
+ */
 fun NavGraphBuilder.rechargeScreen(
     onBackClick: () -> Unit
 ) {

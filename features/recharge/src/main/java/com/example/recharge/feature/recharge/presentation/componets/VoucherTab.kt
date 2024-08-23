@@ -35,6 +35,16 @@ import com.example.recharge.feature.recharge.presentation.util.RechargeUiIntent
 import com.example.core.sharedData.RechargeModel
 import com.example.utils.core.UiState
 
+
+
+/**
+ * VoucherTab is a composable function that displays the voucher tab UI for entering and validating voucher codes.
+ *
+ * @param rechargeModel Optional model for displaying recharge data.
+ * @param codeUiState The current UI state for code validation (e.g., loading, error, success).
+ * @param code Current voucher code input value.
+ * @param onCodeChanged Callback invoked when the code changes.
+ */
 @Composable
 fun VoucherTab(
     rechargeModel: RechargeModel?,

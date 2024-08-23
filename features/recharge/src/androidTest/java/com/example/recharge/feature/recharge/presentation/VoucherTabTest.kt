@@ -17,8 +17,20 @@ import org.junit.Test
 @HiltAndroidTest
 class VoucherTabTest : RechargeTestBase() {
 
-    @Test
 
+    /**
+     * VoucherTabTest contains UI tests for the Voucher tab in the Recharge screen.
+     * It uses Hilt for dependency injection and Compose Test Rules for UI testing.
+     *
+     * - `testCodeInput()`: Verifies voucher code input functionality.
+     *   1. Sets up the RechargeRoute with test content.
+     *   2. Clicks on the "Voucher" tab to display the code input.
+     *   3. Ensures the code input field and submit button are present and the status text is initially absent.
+     *   4. Inputs a voucher code and verifies the field shows the entered code.
+     *   5. Checks that the submit button is enabled and status text displays "Valid".
+     */
+
+    @Test
     fun testCodeInput() {
         // Set up the content to be tested
         with(composeTestRule) {
