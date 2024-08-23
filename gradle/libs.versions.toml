@@ -93,9 +93,6 @@ hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hiltDaggerCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompose" }
 
-#COIL
-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilVersion" }
-
 # Utils
 javaInject = { module = "javax.inject:javax.inject", version.ref = "javaInject" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gsonVersion" }
@@ -144,7 +141,6 @@ jetpackCompost = [
     "composeLivedata",
     "navigationCompose",
     "composeRuntime",
-    "coil-compose",
     "androidx-lifecycle-runtimeCompose"
 ]
 
@@ -166,7 +162,6 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-scripting = { id = "org.jetbrains.kotlin.plugin.scripting", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 serialization-plugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization-plugin" }
