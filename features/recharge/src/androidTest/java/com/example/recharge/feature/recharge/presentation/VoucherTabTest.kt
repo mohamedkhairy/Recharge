@@ -8,7 +8,6 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
-import androidx.compose.ui.test.printToString
 import com.example.recharge.feature.recharge.presentation.screens.RechargeRoute
 import com.example.recharge.feature.recharge.utils.RechargeTestBase
 import dagger.hilt.android.testing.HiltAndroidTest

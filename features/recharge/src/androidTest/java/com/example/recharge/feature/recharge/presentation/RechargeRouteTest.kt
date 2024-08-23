@@ -1,19 +1,15 @@
 package com.example.recharge.feature.recharge.presentation
 
-import androidx.compose.ui.test.*
 import androidx.compose.ui.test.assertHasClickAction
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.core.sharedData.RechargeModel
-import com.example.recharge.feature.recharge.AndroidTestActivity
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.example.recharge.feature.recharge.presentation.screens.RechargeRoute
 import com.example.recharge.feature.recharge.utils.RechargeTestBase
-import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
 
 /**

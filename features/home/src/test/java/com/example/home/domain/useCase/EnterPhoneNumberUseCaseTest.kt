@@ -1,8 +1,8 @@
+import com.example.core.sharedData.RechargeModel
 import com.example.home.domain.useCase.EnterPhoneNumberUseCase
 import com.example.home.fakeData.ZainInvalidFakeData.emptyPhoneNum
 import com.example.home.fakeData.ZainInvalidFakeData.invalidPhoneNum
 import com.example.home.fakeData.ZainValidFakeData.validPhoneNum
-import com.example.core.sharedData.RechargeModel
 import com.example.recharge.feature.home.R
 import com.example.utils.core.Constant.zainRecognizekey
 import com.example.utils.resourceProvider.ResourceProvider
@@ -19,7 +19,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito.*
+import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import kotlin.test.assertFailsWith
 
